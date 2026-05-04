@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Fleet photo placeholder</title>
+  <desc id="desc">Replace this file with a fleet image. Keep the same filename to avoid editing HTML.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#050608" />
+      <stop offset="0.6" stop-color="#0b121a" />
+      <stop offset="1" stop-color="#241706" />
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="30%" r="62%">
+      <stop offset="0" stop-color="#d8bd7f" stop-opacity="0.25" />
+      <stop offset="1" stop-color="#d8bd7f" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="url(#glow)" />
+
+  <g fill="none" stroke="rgba(247,240,227,0.18)" stroke-width="2">
+    <rect x="90" y="90" width="1420" height="720" rx="34" />
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#f7f0e3">
+    <text x="120" y="220" font-size="56" font-weight="700">Fleet Photo Placeholder</text>
+    <text x="120" y="290" font-size="26" fill="rgba(247,240,227,0.82)">Replace: fleet-placeholder.svg</text>
+    <text x="120" y="330" font-size="22" fill="rgba(247,240,227,0.72)">Use a lineup shot, exterior, or branded vehicle image.</text>
+  </g>
+</svg>

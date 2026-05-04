@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shore Thing Transport | Booking Request</title>
+    <meta
+      name="description"
+      content="Booking request page template: vehicle selection + request form. Works as a clean static HTML intake page."
+    />
+    <meta property="og:title" content="Shore Thing Transport | Booking Request" />
+    <meta property="og:description" content="Request a ride with trip details and vehicle selection." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="topbar" aria-label="Quick contact">
+      <div>24/7 airport and private ride requests</div>
+      <div>
+        Call/Text:
+        <a href="tel:+16092763372">(609) 276-3372</a>
+        <span aria-hidden="true">&middot;</span>
+        Email:
+        <a href="mailto:parker@shorethingtransport.com">parker@shorethingtransport.com</a>
+      </div>
+    </div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Shore Thing Transport home">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="5" y="9" width="38" height="30" rx="10"></rect>
+            <path d="M14 29h20M17 22h14M18 34h3M31 34h3"></path>
+            <path d="M13 18l5-5h13l5 5"></path>
+          </svg>
+          <span>
+            <strong>Shore Thing</strong>
+            <small>Transport</small>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          data-nav-toggle
+        >
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+
+        <nav class="nav-links" id="primary-nav" aria-label="Site pages" data-nav-links>
+          <a href="index.html">Home</a>
+          <a href="fleet.html">Fleet</a>
+          <a href="book.html" aria-current="page">Book</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme"></button>
+          <a class="button button-small button-primary" href="#reserve">Request Ride</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero hero-compact" aria-labelledby="book-hero-title">
+        <div class="hero-background" aria-hidden="true">
+          <span class="map-line line-one"></span>
+          <span class="map-line line-two"></span>
+          <span class="map-line line-three"></span>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Booking request</p>
+            <h1 id="book-hero-title">A clean request form that feels like a real booking engine.</h1>
+            <p class="hero-lede">
+              This page keeps the strongest ideas from your reference layout: vehicle-first selection, a clear step indicator,
+              and a high-contrast gold CTA. All text is real HTML (not baked into images).
+            </p>
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="button button-primary" href="#reserve">Start request</a>
+              <a class="button button-secondary" href="fleet.html">Compare vehicles</a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Before you submit">
+            <h2>Request now, confirm later.</h2>
+            <p>
+              This form is for ride requests only. You can confirm pricing, timing, and payment manually, then add Stripe/PayPal
+              or a full booking engine later.
+            </p>
+
+            <ul class="mini-benefits" role="list" aria-label="Highlights">
+              <li><strong>Simple intake</strong><span>Email + dashboard compatible</span></li>
+              <li><strong>Editable</strong><span>Pure HTML/CSS/JS</span></li>
+              <li><strong>Fast to deploy</strong><span>Vercel / Netlify / GitHub</span></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section booking-section" id="reserve" aria-labelledby="reserve-title">
+        <div class="section-heading">
+          <p class="eyebrow">Reserve your ride</p>
+          <h2 id="reserve-title">Select a vehicle and send your request.</h2>
+          <p>
+            The fare estimate is a simple placeholder calculator (base + per-mile). Replace the rates in the HTML attributes or
+            remove the estimate entirely.
+          </p>
+        </div>
+
+        <div class="steps" aria-label="Booking process steps">
+          <div class="step active">1. Trip details</div>
+          <div class="step">2. Vehicle</div>
+          <div class="step">3. Passenger info</div>
+          <div class="step">4. Confirmation</div>
+        </div>
+
+        <div class="tabs" aria-label="Trip type tabs">
+          <button class="tab active" type="button" aria-pressed="true">Distance</button>
+          <button class="tab" type="button" aria-pressed="false">Hourly</button>
+        </div>
+
+        <div class="booking-grid">
+          <div class="vehicle-panel" aria-labelledby="vehicles-title">
+            <h3 id="vehicles-title">Select Your Vehicle</h3>
+
+            <div class="vehicle-grid">
+              <button
+                class="vehicle-card is-selected"
+                type="button"
+                data-vehicle="Economy Sedan"
+                data-base="35"
+                data-mile="3.75"
+              >
+                <span class="vehicle-image image-escalade" aria-hidden="true"></span>
+                <strong>Economy Sedan</strong>
+                <small>Up to 3 passengers</small>
+                <span>Example rate: $35 base + $3.75/mi</span>
+              </button>
+
+              <button class="vehicle-card" type="button" data-vehicle="Comfort / Premium" data-base="45" data-mile="4.50">
+                <span class="vehicle-image image-suburban" aria-hidden="true"></span>
+                <strong>Comfort / Premium</strong>
+                <small>Up to 3 passengers</small>
+                <span>Example rate: $45 base + $4.50/mi</span>
+              </button>
+
+              <button class="vehicle-card" type="button" data-vehicle="XL / Group Ride" data-base="55" data-mile="5.25">
+                <span class="vehicle-image image-premium" aria-hidden="true"></span>
+                <strong>XL / Group Ride</strong>
+                <small>5+ passengers</small>
+                <span>Example rate: $55 base + $5.25/mi</span>
+              </button>
+
+              <button class="vehicle-card" type="button" data-vehicle="Hourly (By Request)" data-base="95" data-mile="0">
+                <span class="vehicle-image image-sedan" aria-hidden="true"></span>
+                <strong>Hourly (By Request)</strong>
+                <small>Reserve by the hour</small>
+                <span>Example rate: $95/hour (edit)</span>
+              </button>
+            </div>
+
+            <p class="booking-note">
+              Want real images here? Replace the gradient blocks with <code>&lt;img&gt;</code> tags or set backgrounds in
+              <code>styles.css</code>.
+            </p>
+          </div>
+
+          <form
+            class="booking-form"
+            name="booking-request"
+            method="POST"
+            action="book.html?success=1"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            aria-labelledby="form-title"
+          >
+            <input type="hidden" name="form-name" value="booking-request" />
+
+            <p class="sr-only">
+              <label>
+                Don't fill this out if you're human:
+                <input name="bot-field" />
+              </label>
+            </p>
+
+            <div class="form-header">
+              <h3 id="form-title">Booking Request</h3>
+              <p>Requests are reviewed before confirmation. No payment collected on this page.</p>
+            </div>
+
+            <div class="inline-alert" data-success-message hidden>
+              <strong>Request sent.</strong>
+              <span>If you don't hear back quickly, call/text the number in the header.</span>
+            </div>
+
+            <label>
+              Pickup address
+              <input
+                type="text"
+                name="pickup"
+                placeholder="Example: 1704 Surf Avenue, Belmar, NJ"
+                autocomplete="street-address"
+                required
+              />
+            </label>
+
+            <label>
+              Dropoff address
+              <input type="text" name="dropoff" placeholder="Example: Newark Liberty International Airport" required />
+            </label>
+
+            <div class="form-row">
+              <label>
+                Date
+                <input type="date" name="date" required />
+              </label>
+              <label>
+                Time
+                <input type="time" name="time" required />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Passengers
+                <input type="number" name="passengers" min="1" max="14" value="1" required />
+              </label>
+              <label>
+                Approx. miles
+                <input type="number" name="miles" min="1" max="300" value="20" data-mile-input />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Bags
+                <input type="number" name="bags" min="0" max="20" value="0" />
+              </label>
+              <label>
+                Vehicle choice
+                <input type="text" name="vehicle" data-selected-vehicle-input readonly />
+              </label>
+            </div>
+
+            <label>
+              Full name
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+
+            <div class="form-row">
+              <label>
+                Phone
+                <input type="tel" name="phone" autocomplete="tel" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+            </div>
+
+            <label>
+              Flight number, promo code, or notes
+              <textarea
+                name="notes"
+                rows="4"
+                placeholder="Add flight number, pickup instructions, accessibility needs, or timing notes."
+              ></textarea>
+            </label>
+
+            <div class="estimate-box" aria-live="polite">
+              <span>Selected vehicle</span>
+              <strong data-selected-vehicle>Economy Sedan</strong>
+              <span>Estimated fare</span>
+              <strong data-estimate>$110.00</strong>
+            </div>
+
+            <p class="form-fineprint">
+              This estimate is a placeholder. Edit rates in <code>book.html</code> (the <code>data-base</code> and
+              <code>data-mile</code> attributes) or remove the estimate box.
+            </p>
+
+            <button class="button button-primary button-full" type="submit">Submit Ride Request</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section proof-section" aria-labelledby="why-title">
+        <div class="section-heading">
+          <p class="eyebrow">Why this layout works</p>
+          <h2 id="why-title">Keep the good. Refine the awkward.</h2>
+        </div>
+
+        <div class="proof-grid">
+          <article>
+            <strong>Keep: vehicle-first selection</strong>
+            <p>The cards make the service feel real before the customer fills out the form.</p>
+          </article>
+          <article>
+            <strong>Keep: gold CTA buttons</strong>
+            <p>High-contrast booking buttons increase clarity and reduce hesitation.</p>
+          </article>
+          <article>
+            <strong>Refine: overly &quot;luxury&quot; wording</strong>
+            <p>Use direct language: reliable, on-time, private, confirmed.</p>
+          </article>
+          <article>
+            <strong>Refine: pricing promises</strong>
+            <p>If you don't offer fixed rates yet, say &quot;Estimate available before confirmation.&quot;</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Footer">
+      <div class="footer-grid">
+        <div>
+          <div class="brand footer-brand">
+            <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+              <rect x="5" y="9" width="38" height="30" rx="10"></rect>
+              <path d="M14 29h20M17 22h14M18 34h3M31 34h3"></path>
+              <path d="M13 18l5-5h13l5 5"></path>
+            </svg>
+            <span>
+              <strong>Shore Thing</strong>
+              <small>Transport</small>
+            </span>
+          </div>
+          <p>Transferable HTML5 site template for private transportation businesses.</p>
+        </div>
+        <div>
+          <h2 class="footer-title">Pages</h2>
+          <ul class="footer-links" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fleet.html">Fleet</a></li>
+            <li><a href="book.html" aria-current="page">Book</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links" role="list">
+            <li><a href="tel:+16092763372">(609) 276-3372</a></li>
+            <li><a href="mailto:parker@shorethingtransport.com">parker@shorethingtransport.com</a></li>
+            <li>shorethingtransport.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Payment badges placeholder: Apple Pay &middot; Google Pay &middot; Cards &middot; PayPal</span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shore Thing Transport | Fleet</title>
+    <meta name="description" content="Editable fleet page for Shore Thing Transport. Swap images, rename vehicles, and update capacities." />
+    <meta property="og:title" content="Shore Thing Transport | Fleet" />
+    <meta property="og:description" content="Vehicle options for airport transfers, local rides, and event transport." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="topbar" aria-label="Quick contact">
+      <div>24/7 airport and private ride requests</div>
+      <div>
+        Call/Text:
+        <a href="tel:+16092763372">(609) 276-3372</a>
+        <span aria-hidden="true">&middot;</span>
+        Email:
+        <a href="mailto:parker@shorethingtransport.com">parker@shorethingtransport.com</a>
+      </div>
+    </div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Shore Thing Transport home">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="5" y="9" width="38" height="30" rx="10"></rect>
+            <path d="M14 29h20M17 22h14M18 34h3M31 34h3"></path>
+            <path d="M13 18l5-5h13l5 5"></path>
+          </svg>
+          <span>
+            <strong>Shore Thing</strong>
+            <small>Transport</small>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          data-nav-toggle
+        >
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+
+        <nav class="nav-links" id="primary-nav" aria-label="Site pages" data-nav-links>
+          <a href="index.html">Home</a>
+          <a href="fleet.html" aria-current="page">Fleet</a>
+          <a href="book.html">Book</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme"></button>
+          <a class="button button-small button-primary" href="book.html">Request Ride</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero hero-compact" aria-labelledby="fleet-hero-title">
+        <div class="hero-background" aria-hidden="true">
+          <span class="map-line line-one"></span>
+          <span class="map-line line-two"></span>
+          <span class="map-line line-three"></span>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Fleet</p>
+            <h1 id="fleet-hero-title">Vehicles that match the trip.</h1>
+            <p class="hero-lede">
+              This page is designed so images and copy are not trapped inside screenshots. Replace the SVG placeholders in
+              the SVG placeholders in the repo root with your own photos (same filenames), and the layout will hold.
+            </p>
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="button button-primary" href="book.html">Request a Ride</a>
+              <a class="button button-secondary" href="#lineup">View Lineup</a>
+            </div>
+          </div>
+
+          <aside class="hero-card hero-media" aria-label="Fleet hero image">
+            <figure class="media-frame">
+              <img
+                src="fleet-placeholder.svg"
+                alt="Fleet photo placeholder. Replace fleet-placeholder.svg with a photo of your vehicles."
+                width="1600"
+                height="900"
+                loading="lazy"
+              />
+              <figcaption class="media-overlay">
+                <strong>Add a fleet photo</strong>
+                <span>SUV, sedan, van, or branded vehicle shot.</span>
+              </figcaption>
+            </figure>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="lineup" aria-labelledby="lineup-title">
+        <div class="section-heading">
+          <p class="eyebrow">Lineup</p>
+          <h2 id="lineup-title">Editable vehicle cards (swap the image, keep the layout).</h2>
+          <p>Tip: keep the same image aspect ratio (wide landscape) for the cleanest results.</p>
+        </div>
+
+        <div class="card-grid card-grid-4">
+          <article class="feature-card">
+            <figure class="media-mini">
+              <img src="vehicle-placeholder.svg" alt="Vehicle image placeholder." width="1200" height="750" loading="lazy" />
+            </figure>
+            <h3>Economy Sedan</h3>
+            <p>Simple airport and local rides for 1-3 passengers.</p>
+            <div class="badge-row">
+              <span class="badge">3 passengers</span>
+              <span class="badge">2 bags</span>
+              <span class="badge">Best value</span>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <figure class="media-mini">
+              <img src="vehicle-placeholder.svg" alt="Vehicle image placeholder." width="1200" height="750" loading="lazy" />
+            </figure>
+            <h3>Comfort / Premium</h3>
+            <p>Clean private ride option for business, airport, or event travel.</p>
+            <div class="badge-row">
+              <span class="badge">3 passengers</span>
+              <span class="badge">3 bags</span>
+              <span class="badge">Most booked</span>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <figure class="media-mini">
+              <img src="vehicle-placeholder.svg" alt="Vehicle image placeholder." width="1200" height="750" loading="lazy" />
+            </figure>
+            <h3>XL / Group Ride</h3>
+            <p>Extra space for families, luggage, coolers, and group trips.</p>
+            <div class="badge-row">
+              <span class="badge">5+ passengers</span>
+              <span class="badge">4+ bags</span>
+              <span class="badge">Family friendly</span>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <figure class="media-mini">
+              <img src="vehicle-placeholder.svg" alt="Vehicle image placeholder." width="1200" height="750" loading="lazy" />
+            </figure>
+            <h3>Van / Large Group (Optional)</h3>
+            <p>Add this card if you offer vans, sprinters, or larger group transport.</p>
+            <div class="badge-row">
+              <span class="badge">8+ passengers</span>
+              <span class="badge">Group travel</span>
+              <span class="badge">Events</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-actions">
+          <a class="button button-secondary" href="#gallery">See Image Layout</a>
+          <a class="button button-primary" href="book.html">Request Ride</a>
+        </div>
+      </section>
+
+      <section class="section services-section" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <p class="eyebrow">Gallery</p>
+          <h2 id="gallery-title">Image slots (replace the files, not the HTML).</h2>
+          <p>
+            Replace these files in the repo root:
+            <code>gallery-1.svg</code>, <code>gallery-2.svg</code>, <code>gallery-3.svg</code>.
+          </p>
+        </div>
+
+        <div class="gallery-grid" role="list">
+          <figure class="gallery-item" role="listitem">
+            <img src="gallery-1.svg" alt="Gallery placeholder image 1." width="1400" height="900" loading="lazy" />
+          </figure>
+          <figure class="gallery-item" role="listitem">
+            <img src="gallery-2.svg" alt="Gallery placeholder image 2." width="1400" height="900" loading="lazy" />
+          </figure>
+          <figure class="gallery-item" role="listitem">
+            <img src="gallery-3.svg" alt="Gallery placeholder image 3." width="1400" height="900" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section final-cta" aria-labelledby="cta-title">
+        <p class="eyebrow">Ready when you are</p>
+        <h2 id="cta-title">Send a booking request in under 60 seconds.</h2>
+        <p>Use the booking page as a request form now, then plug in live pricing later.</p>
+        <a class="button button-primary" href="book.html">Go to Booking Request</a>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Footer">
+      <div class="footer-grid">
+        <div>
+          <div class="brand footer-brand">
+            <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+              <rect x="5" y="9" width="38" height="30" rx="10"></rect>
+              <path d="M14 29h20M17 22h14M18 34h3M31 34h3"></path>
+              <path d="M13 18l5-5h13l5 5"></path>
+            </svg>
+            <span>
+              <strong>Shore Thing</strong>
+              <small>Transport</small>
+            </span>
+          </div>
+          <p>Transferable HTML5 site template for private transportation businesses.</p>
+        </div>
+        <div>
+          <h2 class="footer-title">Pages</h2>
+          <ul class="footer-links" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fleet.html" aria-current="page">Fleet</a></li>
+            <li><a href="book.html">Book</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">Contact</h2>
+          <ul class="footer-links" role="list">
+            <li><a href="tel:+16092763372">(609) 276-3372</a></li>
+            <li><a href="mailto:parker@shorethingtransport.com">parker@shorethingtransport.com</a></li>
+            <li>shorethingtransport.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Payment badges placeholder: Apple Pay &middot; Google Pay &middot; Cards &middot; PayPal</span>
+      </div>
+    </footer>
+  </body>
+</html>
