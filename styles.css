@@ -896,12 +896,19 @@ h1 span {
   color: var(--color-text);
   text-align: left;
   background: color-mix(in oklab, var(--color-surface) 80%, transparent);
+  cursor: pointer;
+  transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
 }
 
 .vehicle-card:hover,
 .vehicle-card.is-selected {
   border-color: color-mix(in oklab, var(--color-primary) 60%, var(--color-border));
   box-shadow: 0 0 0 1px rgba(245, 164, 49, 0.13), 0 18px 42px rgba(0, 0, 0, 0.25);
+}
+
+.vehicle-card:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--color-primary) 70%, white 10%);
+  outline-offset: 3px;
 }
 
 .vehicle-image {

@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shore Thing Transport | Booking Request</title>
+    <title>Shore Thing Transport | Request a Ride</title>
     <meta
       name="description"
-      content="Booking request page template: vehicle selection + request form. Works as a clean static HTML intake page."
+      content="Request a ride for airport transfers, local transportation, and events. Submit your trip details and we will confirm pricing and availability."
     />
-    <meta property="og:title" content="Shore Thing Transport | Booking Request" />
-    <meta property="og:description" content="Request a ride with trip details and vehicle selection." />
+    <meta property="og:title" content="Shore Thing Transport | Request a Ride" />
+    <meta property="og:description" content="Submit your trip details and we will confirm pricing and availability." />
     <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://api.fontshare.com" />
     <link
@@ -81,29 +81,28 @@
 
         <div class="hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Booking request</p>
-            <h1 id="book-hero-title">A clean request form that feels like a real booking engine.</h1>
+            <p class="eyebrow">Request a ride</p>
+            <h1 id="book-hero-title">Booking Request</h1>
             <p class="hero-lede">
-              This page keeps the strongest ideas from your reference layout: vehicle-first selection, a clear step indicator,
-              and a high-contrast gold CTA. All text is real HTML (not baked into images).
+              Send your pickup, dropoff, date/time, and contact info. We will respond with availability and a confirmed quote.
             </p>
             <div class="hero-actions" aria-label="Primary actions">
               <a class="button button-primary" href="#reserve">Start request</a>
-              <a class="button button-secondary" href="fleet.html">Compare vehicles</a>
+              <a class="button button-secondary" href="fleet.html">View fleet</a>
             </div>
           </div>
 
           <aside class="hero-card" aria-label="Before you submit">
-            <h2>Request now, confirm later.</h2>
+            <h2>What happens next</h2>
             <p>
-              This form is for ride requests only. You can confirm pricing, timing, and payment manually, then add Stripe/PayPal
-              or a full booking engine later.
+              Your request is reviewed by Shore Thing Transport. We will confirm pricing, pickup details, and timing by text or
+              email.
             </p>
 
             <ul class="mini-benefits" role="list" aria-label="Highlights">
-              <li><strong>Simple intake</strong><span>Email + dashboard compatible</span></li>
-              <li><strong>Editable</strong><span>Pure HTML/CSS/JS</span></li>
-              <li><strong>Fast to deploy</strong><span>Vercel / Netlify / GitHub</span></li>
+              <li><strong>No payment here</strong><span>Payment is arranged after confirmation</span></li>
+              <li><strong>Airport friendly</strong><span>Share flight details in the notes</span></li>
+              <li><strong>Fast follow-up</strong><span>Call or text if timing is urgent</span></li>
             </ul>
           </aside>
         </div>
@@ -114,8 +113,8 @@
           <p class="eyebrow">Reserve your ride</p>
           <h2 id="reserve-title">Select a vehicle and send your request.</h2>
           <p>
-            The fare estimate is a simple placeholder calculator (base + per-mile). Replace the rates in the HTML attributes or
-            remove the estimate entirely.
+            Choose a vehicle style, then submit your trip details. If you are not sure which option fits, add a note and we will
+            recommend the best match.
           </p>
         </div>
 
@@ -126,54 +125,35 @@
           <div class="step">4. Confirmation</div>
         </div>
 
-        <div class="tabs" aria-label="Trip type tabs">
-          <button class="tab active" type="button" aria-pressed="true">Distance</button>
-          <button class="tab" type="button" aria-pressed="false">Hourly</button>
-        </div>
-
         <div class="booking-grid">
           <div class="vehicle-panel" aria-labelledby="vehicles-title">
-            <h3 id="vehicles-title">Select Your Vehicle</h3>
+            <h3 id="vehicles-title">Choose a Vehicle</h3>
 
             <div class="vehicle-grid">
-              <button
-                class="vehicle-card is-selected"
-                type="button"
-                data-vehicle="Economy Sedan"
-                data-base="35"
-                data-mile="3.75"
-              >
-                <span class="vehicle-image image-escalade" aria-hidden="true"></span>
+              <button class="vehicle-card is-selected" type="button" data-vehicle="Economy Sedan" aria-pressed="true">
+                <span class="vehicle-image image-sedan" aria-hidden="true"></span>
                 <strong>Economy Sedan</strong>
                 <small>Up to 3 passengers</small>
-                <span>Example rate: $35 base + $3.75/mi</span>
+                <span>Best for airport transfers and local rides</span>
               </button>
 
-              <button class="vehicle-card" type="button" data-vehicle="Comfort / Premium" data-base="45" data-mile="4.50">
+              <button class="vehicle-card" type="button" data-vehicle="Comfort / Premium" aria-pressed="false">
                 <span class="vehicle-image image-suburban" aria-hidden="true"></span>
                 <strong>Comfort / Premium</strong>
                 <small>Up to 3 passengers</small>
-                <span>Example rate: $45 base + $4.50/mi</span>
+                <span>Best for business travel and events</span>
               </button>
 
-              <button class="vehicle-card" type="button" data-vehicle="XL / Group Ride" data-base="55" data-mile="5.25">
+              <button class="vehicle-card" type="button" data-vehicle="XL / Group Ride" aria-pressed="false">
                 <span class="vehicle-image image-premium" aria-hidden="true"></span>
                 <strong>XL / Group Ride</strong>
                 <small>5+ passengers</small>
-                <span>Example rate: $55 base + $5.25/mi</span>
-              </button>
-
-              <button class="vehicle-card" type="button" data-vehicle="Hourly (By Request)" data-base="95" data-mile="0">
-                <span class="vehicle-image image-sedan" aria-hidden="true"></span>
-                <strong>Hourly (By Request)</strong>
-                <small>Reserve by the hour</small>
-                <span>Example rate: $95/hour (edit)</span>
+                <span>Best for families, groups, and extra luggage</span>
               </button>
             </div>
 
             <p class="booking-note">
-              Want real images here? Replace the gradient blocks with <code>&lt;img&gt;</code> tags or set backgrounds in
-              <code>styles.css</code>.
+              Not sure which vehicle fits? Add passenger count, luggage, and any car seat or accessibility needs in the notes.
             </p>
           </div>
 
@@ -195,9 +175,11 @@
               </label>
             </p>
 
+            <input type="hidden" name="vehicle" data-selected-vehicle-input value="Economy Sedan" />
+
             <div class="form-header">
               <h3 id="form-title">Booking Request</h3>
-              <p>Requests are reviewed before confirmation. No payment collected on this page.</p>
+              <p>Requests are reviewed before confirmation. No payment is collected on this page.</p>
             </div>
 
             <div class="inline-alert" data-success-message hidden>
@@ -218,7 +200,13 @@
 
             <label>
               Dropoff address
-              <input type="text" name="dropoff" placeholder="Example: Newark Liberty International Airport" required />
+              <input
+                type="text"
+                name="dropoff"
+                placeholder="Example: Newark Liberty International Airport"
+                autocomplete="street-address"
+                required
+              />
             </label>
 
             <div class="form-row">
@@ -238,19 +226,8 @@
                 <input type="number" name="passengers" min="1" max="14" value="1" required />
               </label>
               <label>
-                Approx. miles
-                <input type="number" name="miles" min="1" max="300" value="20" data-mile-input />
-              </label>
-            </div>
-
-            <div class="form-row">
-              <label>
                 Bags
                 <input type="number" name="bags" min="0" max="20" value="0" />
-              </label>
-              <label>
-                Vehicle choice
-                <input type="text" name="vehicle" data-selected-vehicle-input readonly />
               </label>
             </div>
 
@@ -282,43 +259,12 @@
             <div class="estimate-box" aria-live="polite">
               <span>Selected vehicle</span>
               <strong data-selected-vehicle>Economy Sedan</strong>
-              <span>Estimated fare</span>
-              <strong data-estimate>$110.00</strong>
             </div>
 
-            <p class="form-fineprint">
-              This estimate is a placeholder. Edit rates in <code>book.html</code> (the <code>data-base</code> and
-              <code>data-mile</code> attributes) or remove the estimate box.
-            </p>
+            <p class="form-fineprint">After you submit, we will confirm availability and pricing by text or email.</p>
 
             <button class="button button-primary button-full" type="submit">Submit Ride Request</button>
           </form>
-        </div>
-      </section>
-
-      <section class="section proof-section" aria-labelledby="why-title">
-        <div class="section-heading">
-          <p class="eyebrow">Why this layout works</p>
-          <h2 id="why-title">Keep the good. Refine the awkward.</h2>
-        </div>
-
-        <div class="proof-grid">
-          <article>
-            <strong>Keep: vehicle-first selection</strong>
-            <p>The cards make the service feel real before the customer fills out the form.</p>
-          </article>
-          <article>
-            <strong>Keep: gold CTA buttons</strong>
-            <p>High-contrast booking buttons increase clarity and reduce hesitation.</p>
-          </article>
-          <article>
-            <strong>Refine: overly &quot;luxury&quot; wording</strong>
-            <p>Use direct language: reliable, on-time, private, confirmed.</p>
-          </article>
-          <article>
-            <strong>Refine: pricing promises</strong>
-            <p>If you don't offer fixed rates yet, say &quot;Estimate available before confirmation.&quot;</p>
-          </article>
         </div>
       </section>
     </main>
@@ -337,7 +283,7 @@
               <small>Transport</small>
             </span>
           </div>
-          <p>Transferable HTML5 site template for private transportation businesses.</p>
+          <p>Airport transfers, local rides, private transportation, and event travel.</p>
         </div>
         <div>
           <h2 class="footer-title">Pages</h2>

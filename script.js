@@ -2,8 +2,8 @@
   const root = document.documentElement;
   const themeToggle = document.querySelector("[data-theme-toggle]");
   const themeStorageKey = "stt-theme";
-  const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches ?? true;
-  let activeTheme = localStorage.getItem(themeStorageKey) || (prefersDark ? "dark" : "light");
+  // Default to the brand look (dark). Users can override via the toggle, persisted in localStorage.
+  let activeTheme = localStorage.getItem(themeStorageKey) || "dark";
 
   function renderThemeIcon(theme) {
     return theme === "dark"
@@ -63,34 +63,32 @@
   const vehicleButtons = [...document.querySelectorAll(".vehicle-card")];
   const selectedVehicle = document.querySelector("[data-selected-vehicle]");
   const selectedVehicleInput = document.querySelector("[data-selected-vehicle-input]");
-  const estimate = document.querySelector("[data-estimate]");
-  const milesInput = document.querySelector("[data-mile-input]");
 
   let currentVehicle = vehicleButtons.find((button) => button.classList.contains("is-selected")) || vehicleButtons[0];
 
-  function updateEstimate() {
-    if (!currentVehicle || !selectedVehicle || !estimate || !milesInput) return;
-    const base = Number(currentVehicle.dataset.base || 0);
-    const mileRate = Number(currentVehicle.dataset.mile || 0);
-    const miles = Math.max(1, Number(milesInput.value || 1));
-    const total = base + mileRate * miles;
-    selectedVehicle.textContent = currentVehicle.dataset.vehicle;
-    if (selectedVehicleInput) selectedVehicleInput.value = currentVehicle.dataset.vehicle;
-    estimate.textContent = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD"
-    }).format(total);
+  function renderVehicleSelection() {
+    if (!vehicleButtons.length || !currentVehicle) return;
+    vehicleButtons.forEach((button) => {
+      button.classList.toggle("is-selected", button === currentVehicle);
+      button.setAttribute("aria-pressed", button === currentVehicle ? "true" : "false");
+    });
+  }
+
+  function syncSelectedVehicle() {
+    if (!currentVehicle) return;
+    const vehicle = currentVehicle.dataset.vehicle || "";
+    if (selectedVehicle) selectedVehicle.textContent = vehicle;
+    if (selectedVehicleInput) selectedVehicleInput.value = vehicle;
   }
 
   vehicleButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      vehicleButtons.forEach((item) => item.classList.remove("is-selected"));
-      button.classList.add("is-selected");
       currentVehicle = button;
-      updateEstimate();
+      renderVehicleSelection();
+      syncSelectedVehicle();
     });
   });
 
-  milesInput?.addEventListener("input", updateEstimate);
-  updateEstimate();
+  renderVehicleSelection();
+  syncSelectedVehicle();
 })();
