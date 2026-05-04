@@ -82,9 +82,9 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Request a ride</p>
-            <h1 id="book-hero-title">Booking Request</h1>
+            <h1 id="book-hero-title">Request a Ride</h1>
             <p class="hero-lede">
-              Send your pickup, dropoff, date/time, and contact info. We will respond with availability and a confirmed quote.
+              Send your pickup, dropoff, date/time, passengers, and contact info. We'll confirm availability and send your quote.
             </p>
             <div class="hero-actions" aria-label="Primary actions">
               <a class="button button-primary" href="#reserve">Start request</a>
@@ -111,7 +111,7 @@
       <section class="section booking-section" id="reserve" aria-labelledby="reserve-title">
         <div class="section-heading">
           <p class="eyebrow">Reserve your ride</p>
-          <h2 id="reserve-title">Select a vehicle and send your request.</h2>
+          <h2 id="reserve-title">Choose a vehicle, then send your trip details.</h2>
           <p>
             Choose a vehicle style, then submit your trip details. If you are not sure which option fits, add a note and we will
             recommend the best match.
@@ -119,9 +119,9 @@
         </div>
 
         <div class="steps" aria-label="Booking process steps">
-          <div class="step active">1. Trip details</div>
-          <div class="step">2. Vehicle</div>
-          <div class="step">3. Passenger info</div>
+          <div class="step active">1. Vehicle</div>
+          <div class="step">2. Trip details</div>
+          <div class="step">3. Contact info</div>
           <div class="step">4. Confirmation</div>
         </div>
 
@@ -161,7 +161,7 @@
             class="booking-form"
             name="booking-request"
             method="POST"
-            action="book.html?success=1"
+            action="/book.html?success=1"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             aria-labelledby="form-title"
@@ -178,7 +178,7 @@
             <input type="hidden" name="vehicle" data-selected-vehicle-input value="Economy Sedan" />
 
             <div class="form-header">
-              <h3 id="form-title">Booking Request</h3>
+              <h3 id="form-title">Trip Details</h3>
               <p>Requests are reviewed before confirmation. No payment is collected on this page.</p>
             </div>
 

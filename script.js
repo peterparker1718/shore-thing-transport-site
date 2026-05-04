@@ -60,6 +60,16 @@
     if (params.get("success") === "1") successBanner.hidden = false;
   }
 
+  // Booking page: keep users from accidentally selecting dates in the past.
+  const dateInput = document.querySelector('input[type="date"][name="date"]');
+  if (dateInput && !dateInput.min) {
+    const now = new Date();
+    const yyyy = String(now.getFullYear());
+    const mm = String(now.getMonth() + 1).padStart(2, "0");
+    const dd = String(now.getDate()).padStart(2, "0");
+    dateInput.min = `${yyyy}-${mm}-${dd}`;
+  }
+
   const vehicleButtons = [...document.querySelectorAll(".vehicle-card")];
   const selectedVehicle = document.querySelector("[data-selected-vehicle]");
   const selectedVehicleInput = document.querySelector("[data-selected-vehicle-input]");
