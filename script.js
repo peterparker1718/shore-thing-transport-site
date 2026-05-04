@@ -70,35 +70,40 @@
     dateInput.min = `${yyyy}-${mm}-${dd}`;
   }
 
-  const vehicleButtons = [...document.querySelectorAll(".vehicle-card")];
+  // Booking page: Shore Thing runs one flagship vehicle (Cadillac Escalade), so the
+  // hidden form input is hard-coded in HTML and the displayed label mirrors it. The
+  // selection logic below stays in place only if the markup ever exposes a clickable
+  // vehicle picker again — with the single static card it's a no-op.
+  const vehicleButtons = [...document.querySelectorAll("button.vehicle-card")];
   const selectedVehicle = document.querySelector("[data-selected-vehicle]");
   const selectedVehicleInput = document.querySelector("[data-selected-vehicle-input]");
 
-  let currentVehicle = vehicleButtons.find((button) => button.classList.contains("is-selected")) || vehicleButtons[0];
+  if (vehicleButtons.length) {
+    let currentVehicle = vehicleButtons.find((button) => button.classList.contains("is-selected")) || vehicleButtons[0];
 
-  function renderVehicleSelection() {
-    if (!vehicleButtons.length || !currentVehicle) return;
+    const renderVehicleSelection = () => {
+      vehicleButtons.forEach((button) => {
+        button.classList.toggle("is-selected", button === currentVehicle);
+        button.setAttribute("aria-pressed", button === currentVehicle ? "true" : "false");
+      });
+    };
+
+    const syncSelectedVehicle = () => {
+      if (!currentVehicle) return;
+      const vehicle = currentVehicle.dataset.vehicle || "";
+      if (selectedVehicle) selectedVehicle.textContent = vehicle;
+      if (selectedVehicleInput) selectedVehicleInput.value = vehicle;
+    };
+
     vehicleButtons.forEach((button) => {
-      button.classList.toggle("is-selected", button === currentVehicle);
-      button.setAttribute("aria-pressed", button === currentVehicle ? "true" : "false");
+      button.addEventListener("click", () => {
+        currentVehicle = button;
+        renderVehicleSelection();
+        syncSelectedVehicle();
+      });
     });
+
+    renderVehicleSelection();
+    syncSelectedVehicle();
   }
-
-  function syncSelectedVehicle() {
-    if (!currentVehicle) return;
-    const vehicle = currentVehicle.dataset.vehicle || "";
-    if (selectedVehicle) selectedVehicle.textContent = vehicle;
-    if (selectedVehicleInput) selectedVehicleInput.value = vehicle;
-  }
-
-  vehicleButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      currentVehicle = button;
-      renderVehicleSelection();
-      syncSelectedVehicle();
-    });
-  });
-
-  renderVehicleSelection();
-  syncSelectedVehicle();
 })();
