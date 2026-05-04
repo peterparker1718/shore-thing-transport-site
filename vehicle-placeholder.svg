@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
-  <title id="title">Vehicle image placeholder</title>
-  <desc id="desc">Replace this file with a vehicle photo. Keep the same filename to avoid editing HTML.</desc>
+  <title id="title">Cadillac Escalade image placeholder</title>
+  <desc id="desc">Replace this file with your Escalade image (PNG, JPG, WEBP, or SVG). Keep the same filename to avoid editing HTML.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0b0f17" />
@@ -22,13 +22,34 @@
   </g>
 
   <g font-family="Arial, Helvetica, sans-serif" fill="#f7f0e3">
-    <text x="110" y="220" font-size="44" font-weight="700">Vehicle Image Placeholder</text>
-    <text x="110" y="280" font-size="22" fill="rgba(247,240,227,0.78)">Replace: vehicle-placeholder.svg</text>
-    <text x="110" y="320" font-size="20" fill="rgba(247,240,227,0.70)">Use a wide landscape photo.</text>
+    <text x="110" y="210" font-size="44" font-weight="700">Escalade Image Placeholder</text>
+    <text x="110" y="270" font-size="22" fill="rgba(247,240,227,0.78)">Replace: vehicle-placeholder.svg (keep filename)</text>
+    <text x="110" y="310" font-size="20" fill="rgba(247,240,227,0.70)">Supported: PNG, JPG, WEBP, SVG.</text>
+    <text x="110" y="350" font-size="20" fill="rgba(247,240,227,0.70)">Use a wide landscape image (16:9 works best).</text>
 
     <g transform="translate(110 410)" fill="none" stroke="rgba(245,164,49,0.65)" stroke-width="2">
       <rect width="420" height="62" rx="14" />
     </g>
-    <text x="140" y="452" font-size="20" font-weight="700" fill="#17100b">Drop in your car photo</text>
+    <text x="140" y="452" font-size="20" font-weight="700" fill="#17100b">Drop in your Escalade photo</text>
+  </g>
+
+  <!-- Simple luxury SUV silhouette (placeholder; replace with your real photo). -->
+  <g transform="translate(0 0)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path
+      d="M300 505l55-62 140-44h280l120 34 70 72v58H300z"
+      fill="rgba(247,240,227,0.05)"
+      stroke="rgba(247,240,227,0.22)"
+      stroke-width="4"
+    />
+    <path d="M455 399l32-64h260l30 64" stroke="rgba(247,240,227,0.22)" stroke-width="4" opacity="0.9" />
+    <path d="M348 505h570" stroke="rgba(247,240,227,0.14)" stroke-width="3" />
+    <path d="M365 505v-70" stroke="rgba(247,240,227,0.12)" stroke-width="3" />
+    <path d="M890 505v-70" stroke="rgba(247,240,227,0.12)" stroke-width="3" />
+    <rect x="332" y="455" width="86" height="48" rx="10" stroke="rgba(245,164,49,0.5)" stroke-width="3" opacity="0.9" />
+    <rect x="844" y="455" width="56" height="48" rx="10" stroke="rgba(245,164,49,0.4)" stroke-width="3" opacity="0.7" />
+    <circle cx="420" cy="563" r="44" fill="rgba(5,6,8,0.55)" stroke="rgba(247,240,227,0.22)" stroke-width="4" />
+    <circle cx="840" cy="563" r="44" fill="rgba(5,6,8,0.55)" stroke="rgba(247,240,227,0.22)" stroke-width="4" />
+    <circle cx="420" cy="563" r="16" fill="none" stroke="rgba(245,164,49,0.55)" stroke-width="3" />
+    <circle cx="840" cy="563" r="16" fill="none" stroke="rgba(245,164,49,0.55)" stroke-width="3" />
   </g>
 </svg>
