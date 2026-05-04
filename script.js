@@ -70,6 +70,76 @@
     dateInput.min = `${yyyy}-${mm}-${dd}`;
   }
 
+  // Image dropzone: local preview only (does not upload on submit).
+  const imageDropzones = [...document.querySelectorAll("[data-image-dropzone]")];
+  imageDropzones.forEach((dropzone) => {
+    const button = dropzone.querySelector("[data-image-dropzone-button]");
+    const input = dropzone.querySelector("[data-image-dropzone-input]");
+    const preview = dropzone.querySelector("[data-image-dropzone-preview]");
+    const status = dropzone.querySelector("[data-image-dropzone-status]");
+
+    if (!(button instanceof HTMLElement) || !(input instanceof HTMLInputElement) || !(preview instanceof HTMLImageElement)) {
+      return;
+    }
+
+    let activeObjectUrl = null;
+    const supportedTypes = new Set(["image/png", "image/jpeg", "image/webp", "image/svg+xml"]);
+
+    const setStatus = (text) => {
+      if (status) status.textContent = text;
+    };
+
+    const loadFile = (file) => {
+      if (!file) return;
+
+      const typeOk = supportedTypes.has(file.type);
+      const extOk = /\.(png|jpe?g|webp|svg)$/i.test(file.name);
+      if (!typeOk && !extOk) {
+        setStatus("Unsupported file type. Use PNG, JPG, WEBP, or SVG.");
+        return;
+      }
+
+      const objectUrl = URL.createObjectURL(file);
+      if (activeObjectUrl) URL.revokeObjectURL(activeObjectUrl);
+      activeObjectUrl = objectUrl;
+
+      preview.src = objectUrl;
+      preview.alt = `Preview: ${file.name}`;
+      setStatus(`Previewing: ${file.name} (not uploaded)`);
+    };
+
+    const clearDragState = () => dropzone.classList.remove("is-dragover");
+    const setDragState = () => dropzone.classList.add("is-dragover");
+
+    button.addEventListener("click", () => input.click());
+    input.addEventListener("change", () => loadFile(input.files && input.files[0]));
+
+    ["dragenter", "dragover"].forEach((eventName) => {
+      dropzone.addEventListener(eventName, (event) => {
+        event.preventDefault();
+        setDragState();
+      });
+    });
+
+    ["dragleave", "dragend"].forEach((eventName) => {
+      dropzone.addEventListener(eventName, () => clearDragState());
+    });
+
+    dropzone.addEventListener("drop", (event) => {
+      event.preventDefault();
+      clearDragState();
+
+      const files = event.dataTransfer?.files;
+      if (files && files.length) loadFile(files[0]);
+    });
+
+    // Clean up object URLs when navigating away.
+    window.addEventListener("pagehide", () => {
+      if (activeObjectUrl) URL.revokeObjectUrl(activeObjectUrl);
+      activeObjectUrl = null;
+    });
+  });
+
   // Booking page: Shore Thing runs one flagship vehicle (Cadillac Escalade), so the
   // hidden form input is hard-coded in HTML and the displayed label mirrors it. The
   // selection logic below stays in place only if the markup ever exposes a clickable
