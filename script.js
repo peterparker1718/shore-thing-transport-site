@@ -135,7 +135,7 @@
 
     // Clean up object URLs when navigating away.
     window.addEventListener("pagehide", () => {
-      if (activeObjectUrl) URL.revokeObjectUrl(activeObjectUrl);
+      if (activeObjectUrl) URL.revokeObjectURL(activeObjectUrl);
       activeObjectUrl = null;
     });
   });
